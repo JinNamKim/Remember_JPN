@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="테스트" />-->
+
+    <Button
+        android:background="#008800"
+        android:id="@+id/btn_kanji_quiz"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:text="한자보고\n한글 맞추기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_korean_quiz"
+        android:layout_marginTop="30sp"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:text="한글보고\n한자 맞추기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
