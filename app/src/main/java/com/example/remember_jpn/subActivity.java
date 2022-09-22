@@ -17,7 +17,11 @@ import java.util.List;
 
 public class subActivity extends Activity {
 
-    private Button btn_next;
+    private Button btn_OK;
+    private Button btn_NO;
+    private Button btn_check;
+    private TextView tv_correct;
+
     private TextView tv_kindOfQuiz;
     public List<Voca> vocaList = new ArrayList<>();
     public int selectNumber = 0;
@@ -27,8 +31,13 @@ public class subActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selectmode);
 
+        btn_check = findViewById(R.id.btn_check);
+
         tv_kindOfQuiz = findViewById(R.id.tv_kindOfQuiz);
-        btn_next = findViewById(R.id.btn_next);
+        tv_correct = findViewById(R.id.tv_correct);
+
+        btn_OK = findViewById(R.id.btn_OK);
+        btn_NO = findViewById(R.id.btn_NO);
 
         Intent intent = getIntent();
         String str_kindOfQuiz = intent.getStringExtra("kindOfQuiz");
@@ -44,18 +53,74 @@ public class subActivity extends Activity {
             public void onClick(View view) {
 
                 switch (view.getId()) {
-                    case R.id.btn_next:
-                        tv_kindOfQuiz.setText(vocaList.get(selectNumber++).일본어한자);
-                        if(selectNumber >= vocaList.size())
-                            selectNumber = 0;
+                    case R.id.btn_OK:
+                        answerOK();
+//                        tv_kindOfQuiz.setText(vocaList.get(selectNumber++).일본어한자);
+//                        if(selectNumber >= vocaList.size())
+//                            selectNumber = 0;
+                        break;
+
+                    case R.id.btn_NO:
+                        answerNO();
+                        break;
+
+                    case R.id.btn_check:
+//                        String aaa = btn_check.getText().toString();
+//                        Log.e("a",aaa);
+                        //JAVA에서 == 비교는 주소값 비교 !?
+                        if(btn_check.getText().equals("START")) {
+                            startQuiz();
+                        }
+                        else {
+                            showQuiz(false);
+                        }
                         break;
                 }
 
             }
         };
 
-        btn_next.setOnClickListener(onClickListener);
+        btn_OK.setOnClickListener(onClickListener);
+        btn_NO.setOnClickListener(onClickListener);
+        btn_check.setOnClickListener(onClickListener);
 
+    }
+
+
+    private void startQuiz() {
+        btn_check.setText("CHECK");
+        selectNumber = 0;
+        tv_correct.setText("");
+        showQuiz(true);
+    }
+
+    private void showQuiz(Boolean isFirst) {
+        if(isFirst)
+            tv_kindOfQuiz.setText(vocaList.get(selectNumber++).일본어한자);
+        btn_check.setEnabled(false);
+        btn_OK.setEnabled(true);
+        btn_NO.setEnabled(true);
+
+        if(selectNumber >= vocaList.size())
+            selectNumber = 0;
+    }
+
+    private void nextQuiz() {
+        tv_kindOfQuiz.setText(vocaList.get(selectNumber++).일본어한자);
+        btn_check.setEnabled(true);
+        btn_OK.setEnabled(false);
+        btn_NO.setEnabled(false);
+
+        if(selectNumber >= vocaList.size())
+            selectNumber = 0;
+
+    }
+
+    private void answerOK() {
+        nextQuiz();
+    }
+    private void answerNO() {
+        nextQuiz();
     }
 
     public class Voca {

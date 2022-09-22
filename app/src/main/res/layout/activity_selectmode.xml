@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,21 +11,96 @@
         android:id="@+id/tv_kindOfQuiz"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:text="人"
+        android:text="START"
         android:textSize="120sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
 
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_marginStart="20dp"
-        android:text="NEXT"
-        android:textSize="30sp"
-        android:layout_marginTop="400dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_correct"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작하세요"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="START"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_correct" />
+
+        <Button
+            android:id="@+id/btn_OK"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:text="O"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_check" />
+
+        <Button
+            android:id="@+id/btn_NO"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="80dp"
+            android:text="X"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_check" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        -->
+<!--        >-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_OK"-->
+<!--                android:layout_marginLeft="50dp"-->
+<!--                android:text="O"-->
+<!--                android:textSize="30sp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                />-->
+<!--    -->
+<!--            <Button-->
+<!--                android:id="@+id/btn_NO"-->
+<!--                android:layout_marginRight="50dp"-->
+<!--                -->
+<!--                -->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="X"-->
+<!--                android:textSize="30sp" />-->
+<!--        -->
+<!--        -->
+<!--    </LinearLayout>-->
+
+
 
 
 </LinearLayout>
